@@ -1,0 +1,13 @@
+# Personal data and secrets: never commit these.
+state/
+backups/
+approval_policy.json
+launchd/*.plist
+*.log
+*.jsonl
+mcp_token*
+
+# Clutter
+__pycache__/
+*.pyc
+.DS_Store

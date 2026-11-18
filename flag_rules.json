@@ -1,0 +1,39 @@
+{
+  "_comment": "Case-insensitive regular expressions matched against a memory's title, statement and evidence (not its Source link). A match adds the flag. Add your own names under employer and family.",
+  "credentials": [
+    "\\bsk-[A-Za-z0-9_-]{20,}",
+    "\\bAKIA[0-9A-Z]{16}\\b",
+    "\\bgh[pousr]_[A-Za-z0-9]{30,}",
+    "\\bxox[abposr]-[A-Za-z0-9-]{10,}",
+    "-----BEGIN [A-Z ]*PRIVATE KEY",
+    "\\beyJ[A-Za-z0-9_-]{20,}\\.[A-Za-z0-9_-]{10,}",
+    "\\b(password|passwd|passcode|api[ _-]?key|secret[ _-]?key|access[ _-]?token|auth[ _-]?token|bearer token|client secret)\\b",
+    "\\b(recovery|backup) codes?\\b",
+    "\\b(2fa|mfa|otp) codes?\\b",
+    "\\b(ssn|social security number|passport number|routing number|account number)\\b"
+  ],
+  "financial": [
+    "[$₹€£]\\s?\\d",
+    "\\b\\d+(\\.\\d+)?\\s?(k|m|lakhs?|crores?|lpa)\\b(?![-a-z])",
+    "\\b(salary|salaries|compensation|base pay|bonus(es)?|equity|rsus?|stock options?|vesting|severance|offer letter|pay ?raise|net worth|savings|mortgage|loan|debt|rent|401\\(?k\\)?|ira|roth|brokerage|tax(es)?|credit card|bank account|insurance premium|deductible)\\b"
+  ],
+  "health": [
+    "\\b(diagnos(ed|is|es)|prescri(bed|ption)s?|medications?|symptoms?|blood (test|work|pressure|sugar)|lab results?|cholesterol|ldl|hdl|triglycerides?|a1c|uric acid|statins?|surgery|surgeon|therapist|psychiatrist|anxiety|depression|insomnia|allerg(y|ies|ic)|pregnan(t|cy)|(my|our|the user's|user's|their) (doctor|physician|dentist|cardiologist|rheumatologist)|flare[- ]ups?)\\b"
+  ],
+  "employer": [
+    "\\b(my|our|the user's|user's|their) (manager|boss|skip[- ]level|director|vp|ceo|cto|team lead|employer|company|org|organization|team)\\b",
+    "\\b(performance review|perf review|promotion|layoffs?|reorg|re-org|performance improvement plan|internal (project|roadmap|tool|launch)|confidential|nda|non-?compete|stay or (switch|leave)|resign(ed|ation)?|counter ?offer|notice period|recruiter|hiring manager)\\b"
+  ],
+  "family": [
+    "\\b(my|our|the user's|user's|their) (wife|husband|spouse|partner|son|daughter|kids?|children|child|baby|mom|mother|dad|father|parents?|brother|sister|siblings?|in-?laws?|mother-in-law|father-in-law|grandmother|grandfather|grandparents?|family)\\b"
+  ],
+  "location": [
+    "\\b\\d{1,5}\\s+[A-Z][a-z]+(\\s+[A-Z][a-z]+)*\\s+(St|Street|Ave|Avenue|Rd|Road|Blvd|Boulevard|Ln|Lane|Dr|Drive|Ct|Court|Way|Pl|Place)\\b",
+    "\\b(i|we) (live|lived|am moving|are moving|moved|relocat(e|ed|ing)) (in|to)\\b",
+    "\\b(the user|user) (lives|lived|is moving|moved|relocat(es|ed|ing)) (in|to)\\b",
+    "\\b(my|our|the user's|user's|their) (home address|address|apartment|house|neighbou?rhood)\\b"
+  ],
+  "legal": [
+    "\\b(lawyer|attorney|lawsuit|litigation|sued|subpoena|court|visa|immigration|h-?1b|green card|ead|i-?140|i-?485|divorce|custody|settlement|legal dispute)\\b"
+  ]
+}

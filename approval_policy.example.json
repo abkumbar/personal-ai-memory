@@ -1,0 +1,37 @@
+{
+  "_comment": "Example policy with made-up projects. Copy to approval_policy.json and edit. Preview with: python3 policy.py run. Apply with: python3 policy.py run --apply. Bump version on every change. Projects match ignoring case, spaces and punctuation. Anything no rule covers goes to review, never to approved. Keys starting with _ are comments.",
+  "version": 1,
+  "never_auto_approve_flags": ["credentials", "family", "location", "legal"],
+  "auto_approve_attribution": ["user_stated", "user_confirmed_ai_suggestion"],
+  "default": "review",
+  "project_aliases": {
+    "sleep-app": ["sleep-coach", "sleep-tracker-app"],
+    "home-lab": ["homelab", "raspberry-pi-cluster"],
+    "day-job": ["acme-corp", "acme-roadmap", "acme-hiring"]
+  },
+  "rules": [
+    {
+      "id": "side-projects",
+      "_note": "Your own projects. Health flags are allowed because the product is about health; the never_auto_approve_flags above still block.",
+      "action": "approve",
+      "projects": ["sleep-app", "home-lab"],
+      "categories": ["technical_decision", "project_context", "research_finding", "startup_idea", "action_item", "open_question", "preference"],
+      "allow_flags": ["health"]
+    },
+    {
+      "id": "employer",
+      "_note": "Employer work stays private.",
+      "action": "private",
+      "projects": ["day-job"]
+    },
+    {
+      "id": "ai-suggestions",
+      "_note": "AI recommendations you never confirmed stay private.",
+      "action": "private",
+      "attributions": ["ai_suggested"]
+    },
+    {"id": "career", "action": "private", "categories": ["career"]},
+    {"id": "personal", "action": "private", "categories": ["personal_context"]},
+    {"id": "employer-flag", "action": "private", "flags": ["employer"]}
+  ]
+}
